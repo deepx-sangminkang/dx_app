@@ -264,6 +264,12 @@ void ObjectDetection::PostProc(std::vector<std::shared_ptr<dxrt::Tensor>> &outpu
 {
     std::unique_lock<std::mutex> lk(_lock);
     _bboxes = yolo.PostProc(outputs);
+
+    // Print bbox count for aging test monitoring
+    if (_bboxes.size() >= 500) {
+        std::cerr << "[BBOX_ERROR] count=" << _bboxes.size() << std::endl;
+    }
+
     _processed_count++;
     _ret_processed_count++;
 }

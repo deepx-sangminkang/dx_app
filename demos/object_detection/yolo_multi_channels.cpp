@@ -33,6 +33,7 @@
 #define INPUT_CAPTURE_PERIOD_MS 33
 
 static bool g_full_screan = false;
+static bool g_no_display = false;
 
 /**
  * @brief AppConfig Definition
@@ -81,7 +82,9 @@ const char* usage =
 "yolo demo\n"
 "  -c, --config        use config json file for run application\n"
 "                      e.g. sudo yolo_multi -c _multi_od_.json -a \n"
-"      --window_size    FPS by average over the last {window_size} seconds (default: 60)\n"
+"      --no-display    run without display output (headless mode)\n"
+"                      e.g. sudo yolo_multi -c _multi_od_.json --no-display\n"
+"      --window_size   FPS by average over the last {window_size} seconds (default: 60)\n"
 "                      e.g. sudo yolo_multi -c _multi_od_.json --window_size 60\n"
 "  -h, --help          show help\n"
 ;
@@ -285,6 +288,7 @@ DXRT_TRY_CATCH_BEGIN
     options.add_options()
         ("c, config", "(* required) use config json file for run application", cxxopts::value<std::string>(configPath))
         ("t, test", "test mode", cxxopts::value<bool>(loggingVersion)->default_value("false"))
+        ("no-display", "run without display output (headless mode)", cxxopts::value<bool>(g_no_display)->default_value("false"))
         ("window_size", "FPS by average over the last {window_size} seconds (default: 60)", cxxopts::value<double>(window_size)->default_value("60"))
         ("h, help", "print usage")
     ;
@@ -445,9 +449,11 @@ DXRT_TRY_CATCH_BEGIN
     ie->RegisterCallback(postProcCallBack);
 
 #if !__riscv
-    cv::namedWindow(DISPLAY_WINDOW_NAME, cv::WINDOW_NORMAL);
-    cv::setWindowProperty(DISPLAY_WINDOW_NAME, cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);
-    cv::moveWindow(DISPLAY_WINDOW_NAME, 0, 0);
+    if (!g_no_display) {
+        cv::namedWindow(DISPLAY_WINDOW_NAME, cv::WINDOW_NORMAL);
+        cv::setWindowProperty(DISPLAY_WINDOW_NAME, cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);
+        cv::moveWindow(DISPLAY_WINDOW_NAME, 0, 0);
+    }
 #endif
 
     for(auto &app:apps)
@@ -566,9 +572,13 @@ DXRT_TRY_CATCH_BEGIN
         std::cout << "press 'q' and enter to exit. " << std::endl;
         int key = getchar();
 #else
-        cv::imshow(DISPLAY_WINDOW_NAME, outFrame);
-
-        int key = cv::waitKey(1);
+        int key = -1;
+        if (!g_no_display) {
+            cv::imshow(DISPLAY_WINDOW_NAME, outFrame);
+            key = cv::waitKey(1);
+        } else {
+            std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        }
 #endif
         if(key == 0x1B || key == 0x71) //'ESC'
         {
