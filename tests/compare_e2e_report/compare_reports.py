@@ -101,7 +101,7 @@ def generate_markdown_report(
     new_data: dict,
     async_keys: List[tuple],
     sync_keys: List[tuple],
-    regression_threshold: float,
+    threshold: float,
 ) -> str:
     """Generate markdown formatted report."""
     lines = []
@@ -113,7 +113,7 @@ def generate_markdown_report(
     lines.append("")
     lines.append(f"- **Baseline (old):** `{old_file.name}`")
     lines.append(f"- **Current (new):** `{new_file.name}`")
-    lines.append(f"- **Regression threshold:** {regression_threshold}%")
+    lines.append(f"- **Threshold:** {threshold}%")
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -133,7 +133,7 @@ def generate_markdown_report(
         old_fps = parse_fps_value(old_row.get("E2E FPS", ""))
         new_fps = parse_fps_value(new_row.get("E2E FPS", ""))
         _, pct, _ = calculate_change(old_fps, new_fps)
-        status = get_status(pct, regression_threshold)
+        status = get_status(pct, threshold)
         if "FAIL" in status:
             async_fail += 1
         else:
@@ -141,12 +141,12 @@ def generate_markdown_report(
             old_inflight_avg = parse_fps_value(old_row.get("Infer Inflight Avg", ""))
             new_inflight_avg = parse_fps_value(new_row.get("Infer Inflight Avg", ""))
             _, avg_pct, _ = calculate_change(old_inflight_avg, new_inflight_avg)
-            if avg_pct is not None and avg_pct > regression_threshold:
+            if avg_pct is not None and avg_pct > threshold:
                 inflight_fail = True
             old_inflight_max = parse_fps_value(old_row.get("Infer Inflight Max", ""))
             new_inflight_max = parse_fps_value(new_row.get("Infer Inflight Max", ""))
             _, max_pct, _ = calculate_change(old_inflight_max, new_inflight_max)
-            if max_pct is not None and max_pct > regression_threshold:
+            if max_pct is not None and max_pct > threshold:
                 inflight_fail = True
             if inflight_fail:
                 async_warn += 1
@@ -159,7 +159,7 @@ def generate_markdown_report(
         old_e2e = parse_fps_value(old_row.get("E2E FPS", ""))
         new_e2e = parse_fps_value(new_row.get("E2E FPS", ""))
         _, e2e_pct, _ = calculate_change(old_e2e, new_e2e)
-        status = get_status(e2e_pct, regression_threshold)
+        status = get_status(e2e_pct, threshold)
         if "FAIL" in status:
             sync_fail += 1
         else:
@@ -168,7 +168,7 @@ def generate_markdown_report(
                 old_val = parse_fps_value(old_row.get(col, ""))
                 new_val = parse_fps_value(new_row.get(col, ""))
                 _, pct, _ = calculate_change(old_val, new_val)
-                if pct is not None and pct < -regression_threshold:
+                if pct is not None and pct < -threshold:
                     sub_fail = True
             if sub_fail:
                 sync_warn += 1
@@ -215,19 +215,19 @@ def generate_markdown_report(
         new_fps = parse_fps_value(new_row.get("E2E FPS", ""))
         diff, pct, is_reg = calculate_change(old_fps, new_fps)
 
-        fps_cell = format_fps_cell(old_fps, new_fps, diff, pct, regression_threshold)
-        status = get_status(pct, regression_threshold)
+        fps_cell = format_fps_cell(old_fps, new_fps, diff, pct, threshold)
+        status = get_status(pct, threshold)
 
         # Inflight metrics
         old_inflight_avg = parse_fps_value(old_row.get("Infer Inflight Avg", ""))
         new_inflight_avg = parse_fps_value(new_row.get("Infer Inflight Avg", ""))
         inflight_avg_diff, inflight_avg_pct, _ = calculate_change(old_inflight_avg, new_inflight_avg)
-        inflight_avg_cell = format_fps_cell(old_inflight_avg, new_inflight_avg, inflight_avg_diff, inflight_avg_pct, regression_threshold, higher_is_worse=True)
+        inflight_avg_cell = format_fps_cell(old_inflight_avg, new_inflight_avg, inflight_avg_diff, inflight_avg_pct, threshold, higher_is_worse=True)
 
         old_inflight_max = parse_fps_value(old_row.get("Infer Inflight Max", ""))
         new_inflight_max = parse_fps_value(new_row.get("Infer Inflight Max", ""))
         inflight_max_diff, inflight_max_pct, _ = calculate_change(old_inflight_max, new_inflight_max)
-        inflight_max_cell = format_fps_cell(old_inflight_max, new_inflight_max, inflight_max_diff, inflight_max_pct, regression_threshold, higher_is_worse=True)
+        inflight_max_cell = format_fps_cell(old_inflight_max, new_inflight_max, inflight_max_diff, inflight_max_pct, threshold, higher_is_worse=True)
 
         if "FAIL" in status:
             status_md = "❌ **FAIL**"
@@ -236,11 +236,11 @@ def generate_markdown_report(
 
         # Check for inflight failures
         inflight_fail = False
-        if inflight_avg_pct is not None and inflight_avg_pct > regression_threshold:
+        if inflight_avg_pct is not None and inflight_avg_pct > threshold:
             inflight_fail = True
-        if inflight_max_pct is not None and inflight_max_pct > regression_threshold:
+        if inflight_max_pct is not None and inflight_max_pct > threshold:
             inflight_fail = True
-
+        
         if status_md == "✅ PASS" and inflight_fail:
             status_md = "⚠️ WARN"
 
@@ -273,7 +273,7 @@ def generate_markdown_report(
         old_e2e = parse_fps_value(old_row.get("E2E FPS", ""))
         new_e2e = parse_fps_value(new_row.get("E2E FPS", ""))
         _, e2e_pct, _ = calculate_change(old_e2e, new_e2e)
-        status = get_status(e2e_pct, regression_threshold)
+        status = get_status(e2e_pct, threshold)
 
         if "FAIL" in status:
             status_md = "❌ **FAIL**"
@@ -286,9 +286,9 @@ def generate_markdown_report(
             old_val = parse_fps_value(old_row.get(col, ""))
             new_val = parse_fps_value(new_row.get(col, ""))
             diff, pct, is_reg = calculate_change(old_val, new_val)
-            fps_cell = format_fps_cell(old_val, new_val, diff, pct, regression_threshold)
+            fps_cell = format_fps_cell(old_val, new_val, diff, pct, threshold)
             fps_cells.append(fps_cell)
-            if col != "E2E FPS" and pct is not None and pct < -regression_threshold:
+            if col != "E2E FPS" and pct is not None and pct < -threshold:
                 sub_fail = True
 
         if status_md == "✅ PASS" and sub_fail:
@@ -309,7 +309,7 @@ def generate_html_report(
     new_data: dict,
     async_keys: List[tuple],
     sync_keys: List[tuple],
-    regression_threshold: float,
+    threshold: float,
 ) -> str:
     """Generate HTML formatted report."""
 
@@ -333,19 +333,19 @@ def generate_html_report(
         new_fps = parse_fps_value(new_row.get("E2E FPS", ""))
         diff, pct, is_reg = calculate_change(old_fps, new_fps)
 
-        fps_cell = format_fps_cell(old_fps, new_fps, diff, pct, regression_threshold)
-        is_fail = pct is not None and pct < -regression_threshold
+        fps_cell = format_fps_cell(old_fps, new_fps, diff, pct, threshold)
+        is_fail = pct is not None and pct < -threshold
 
         # Inflight metrics
         old_inflight_avg = parse_fps_value(old_row.get("Infer Inflight Avg", ""))
         new_inflight_avg = parse_fps_value(new_row.get("Infer Inflight Avg", ""))
         inflight_avg_diff, inflight_avg_pct, _ = calculate_change(old_inflight_avg, new_inflight_avg)
-        inflight_avg_cell = format_fps_cell(old_inflight_avg, new_inflight_avg, inflight_avg_diff, inflight_avg_pct, regression_threshold, higher_is_worse=True)
+        inflight_avg_cell = format_fps_cell(old_inflight_avg, new_inflight_avg, inflight_avg_diff, inflight_avg_pct, threshold, higher_is_worse=True)
 
         old_inflight_max = parse_fps_value(old_row.get("Infer Inflight Max", ""))
         new_inflight_max = parse_fps_value(new_row.get("Infer Inflight Max", ""))
         inflight_max_diff, inflight_max_pct, _ = calculate_change(old_inflight_max, new_inflight_max)
-        inflight_max_cell = format_fps_cell(old_inflight_max, new_inflight_max, inflight_max_diff, inflight_max_pct, regression_threshold, higher_is_worse=True)
+        inflight_max_cell = format_fps_cell(old_inflight_max, new_inflight_max, inflight_max_diff, inflight_max_pct, threshold, higher_is_worse=True)
 
         if is_fail:
             async_fail += 1
@@ -358,11 +358,11 @@ def generate_html_report(
 
         # Check for inflight failures
         inflight_fail = False
-        if inflight_avg_pct is not None and inflight_avg_pct > regression_threshold:
+        if inflight_avg_pct is not None and inflight_avg_pct > threshold:
             inflight_fail = True
-        if inflight_max_pct is not None and inflight_max_pct > regression_threshold:
+        if inflight_max_pct is not None and inflight_max_pct > threshold:
             inflight_fail = True
-
+        
         if not is_fail and inflight_fail:
             async_success -= 1
             async_warn += 1
@@ -383,7 +383,7 @@ def generate_html_report(
         old_e2e = parse_fps_value(old_row.get("E2E FPS", ""))
         new_e2e = parse_fps_value(new_row.get("E2E FPS", ""))
         _, e2e_pct, _ = calculate_change(old_e2e, new_e2e)
-        is_fail = e2e_pct is not None and e2e_pct < -regression_threshold
+        is_fail = e2e_pct is not None and e2e_pct < -threshold
 
         if is_fail:
             sync_fail += 1
@@ -400,9 +400,9 @@ def generate_html_report(
             old_val = parse_fps_value(old_row.get(col, ""))
             new_val = parse_fps_value(new_row.get(col, ""))
             diff, pct, is_reg = calculate_change(old_val, new_val)
-            fps_cell = format_fps_cell(old_val, new_val, diff, pct, regression_threshold)
+            fps_cell = format_fps_cell(old_val, new_val, diff, pct, threshold)
             fps_cells.append(f"<td>{fps_cell}</td>")
-            if col != "E2E FPS" and pct is not None and pct < -regression_threshold:
+            if col != "E2E FPS" and pct is not None and pct < -threshold:
                 sub_fail = True
 
         if not is_fail and sub_fail:
@@ -463,7 +463,7 @@ def generate_html_report(
     <strong>Generated:</strong> {generated_time}<br>
     <strong>Baseline (old):</strong> {old_file.name}<br>
     <strong>Current (new):</strong> {new_file.name}<br>
-    <strong>Regression threshold:</strong> {regression_threshold}%
+    <strong>Threshold:</strong> {threshold}%
   </div>
 
   <h2>&#x1F4C8; Summary</h2>
@@ -514,7 +514,7 @@ def generate_html_report(
 </html>"""
     return html
 
-def compare_reports(old_file: Path, new_file: Path, regression_threshold: float = 30.0, html_output: bool = False):
+def compare_reports(old_file: Path, new_file: Path, threshold: float = 30.0, html_output: bool = False):
     """Compare two performance reports and generate a report file."""
 
     # Load data
@@ -532,7 +532,7 @@ def compare_reports(old_file: Path, new_file: Path, regression_threshold: float 
     if html_output:
         html_content = generate_html_report(
             old_file, new_file, old_data, new_data,
-            async_keys, sync_keys, regression_threshold
+            async_keys, sync_keys, threshold
         )
         output_file = Path(f"report_{timestamp}.html")
         output_file.write_text(html_content, encoding="utf-8")
@@ -540,7 +540,7 @@ def compare_reports(old_file: Path, new_file: Path, regression_threshold: float 
     else:
         md_content = generate_markdown_report(
             old_file, new_file, old_data, new_data,
-            async_keys, sync_keys, regression_threshold
+            async_keys, sync_keys, threshold
         )
         output_file = Path(f"report_{timestamp}.md")
         output_file.write_text(md_content, encoding="utf-8")
@@ -563,7 +563,7 @@ Examples:
         "--threshold", "-t",
         type=float,
         default=30.0,
-        help="Regression threshold percentage (default: 30, applied as -30%%)"
+        help="Threshold percentage (default: 30, applied as -30%%)"
     )
     parser.add_argument(
         "--md",
