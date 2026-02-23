@@ -10,38 +10,92 @@ Compares two CSV E2E performance reports and generates a comparison report with 
 ## Usage
 
 ```bash
-python compare_reports.py <old_csv> <new_csv> [options]
+python compare_reports.py <baseline_csv> <current_csv> [options]
 ```
 
 ### Arguments
 
 | Argument | Description |
 |:---------|:------------|
-| `old_csv` | Baseline/old performance report CSV |
-| `new_csv` | Current/new performance report CSV |
+| `baseline_file` | Baseline performance report CSV |
+| `current_file` | Current performance report CSV |
 
 ### Options
 
 | Option | Default | Description |
 |:-------|:--------|:------------|
-| `--threshold`, `-t` | `30` | Regression threshold percentage (positive number: applied as -30% for FPS decrease, +30% for inflight increase) |
-| `--md` | *(default)* | Output as markdown (`report_YYYYMMDD_HHMMSS.md`) |
+| `--threshold`, `-t` | `30` | Global regression threshold percentage (applied as -30% for FPS decrease, +30% for inflight increase) |
+| `--threshold-json FILE`, `-tj FILE` | | JSON file with per-model/variant threshold overrides (e.g. `threshold.json`) |
+| `--json` | *(default)* | Output as JSON (`report_YYYYMMDD_HHMMSS.json`) |
+| `--md` | | Output as Markdown (`report_YYYYMMDD_HHMMSS.md`) |
 | `--html` | | Output as HTML (`report_YYYYMMDD_HHMMSS.html`) |
 
 ### Examples
 
 ```bash
-# Basic comparison (outputs markdown by default)
-python compare_reports.py old_report.csv new_report.csv
+# Basic comparison (outputs JSON by default)
+python compare_reports.py baseline.csv current.csv
 
-# Custom threshold (20% - will check for -20% FPS decrease, +20% inflight increase)
-python compare_reports.py old.csv new.csv --threshold 20
+# Custom global threshold (20%)
+python compare_reports.py baseline.csv current.csv --threshold 20
 
-# HTML output
-python compare_reports.py old.csv new.csv --html
+# Per-model/variant threshold overrides
+python compare_reports.py baseline.csv current.csv -tj threshold.json
 
-# Strict threshold with HTML
-python compare_reports.py old.csv new.csv --threshold 5 --html
+# Combined: global fallback + per-model overrides
+python compare_reports.py baseline.csv current.csv -t 20 -tj threshold.json
+
+# Markdown output
+python compare_reports.py baseline.csv current.csv --md
+
+# HTML output with strict threshold
+python compare_reports.py baseline.csv current.csv --threshold 5 --html
+```
+
+## Threshold JSON Format
+
+The threshold JSON file allows configuring per-model (and optionally per-variant) thresholds.
+Entries without a `variant` field match all variants of that model. A more specific
+`(model, variant)` entry takes precedence. Entries fall back to `--threshold` if not found.
+
+### Async section
+
+```json
+{
+  "async": [
+    {
+      "model": "yolov8",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "deeplabv3",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    }
+  ]
+}
+```
+
+### Sync section
+
+```json
+{
+  "sync": [
+    {
+      "model": "yolov8",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    }
+  ]
+}
 ```
 
 ## Report Sections
@@ -90,7 +144,7 @@ Compares sync variants across all FPS metrics. **Status is based on E2E FPS only
 Each metric cell is displayed as:
 
 ```
-old/new (+diff, +pct%)
+baseline/current (+diff, +pct%)
 ```
 
 - Cells exceeding the threshold are prefixed with ❌
