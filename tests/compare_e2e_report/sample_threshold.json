@@ -1,0 +1,550 @@
+{
+  "async": [
+    {
+      "model": "deeplabv3",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "deeplabv3",
+      "variant": "async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "scrfd",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "scrfd",
+      "variant": "async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "scrfd",
+      "variant": "ppu_async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "scrfd",
+      "variant": "ppu_async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov10",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov11",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov11",
+      "variant": "async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov12",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov12",
+      "variant": "async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov26",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov5",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov5",
+      "variant": "async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov5_ppu",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov5_ppu",
+      "variant": "async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov5face",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov5face",
+      "variant": "async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov5pose",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov5pose",
+      "variant": "async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov5pose_ppu",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov5pose_ppu",
+      "variant": "async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov7",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov7",
+      "variant": "async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov7_ppu",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov7_ppu",
+      "variant": "async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov8",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov8",
+      "variant": "async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov8seg",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov8seg",
+      "variant": "async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov9",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolov9",
+      "variant": "async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolox",
+      "variant": "async",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    },
+    {
+      "model": "yolox",
+      "variant": "async_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "inflight_avg": 30.0,
+      "inflight_max": 30.0
+    }
+  ],
+  "sync": [
+    {
+      "model": "deeplabv3",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "deeplabv3",
+      "variant": "sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "scrfd",
+      "variant": "ppu_sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "scrfd",
+      "variant": "ppu_sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "scrfd",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "scrfd",
+      "variant": "sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov10",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov11",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov11",
+      "variant": "sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov12",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov12",
+      "variant": "sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov26",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov5",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov5",
+      "variant": "sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov5_ppu",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov5_ppu",
+      "variant": "sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov5face",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov5face",
+      "variant": "sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov5pose",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov5pose",
+      "variant": "sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov5pose_ppu",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov5pose_ppu",
+      "variant": "sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov7",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov7",
+      "variant": "sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov7_ppu",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov7_ppu",
+      "variant": "sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov8",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov8",
+      "variant": "sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov8seg",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov8seg",
+      "variant": "sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov9",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolov9",
+      "variant": "sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolox",
+      "variant": "sync",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    },
+    {
+      "model": "yolox",
+      "variant": "sync_cpp_postprocess",
+      "e2e_fps": 10.0,
+      "read_fps": 30.0,
+      "preprocess_fps": 30.0,
+      "inference_fps": 30.0,
+      "postprocess_fps": 30.0
+    }
+  ]
+}
