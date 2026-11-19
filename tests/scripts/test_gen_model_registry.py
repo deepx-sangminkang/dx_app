@@ -484,15 +484,15 @@ def _main_in_fake_root(monkeypatch, tmp_path, *argv):
         tmp_path, {("object_detection", "widget"): GOOD_HEADER},
         [entry("widget", "object_detection")])
     fake_root = tmp_path / "root"
-    (fake_root / "docs").mkdir(parents=True, exist_ok=True)
+    fake_root.mkdir(parents=True, exist_ok=True)
     monkeypatch.setattr(gen, "ROOT", fake_root)
     monkeypatch.setattr(sys, "argv", ["gen_model_registry.py", "--cpp-root", str(cpp_root),
                                       "--registry", str(registry)] + list(argv))
-    return gen.main(), fake_root / "docs" / "graph_models.md"
+    return gen.main(), fake_root / "GRAPH_MODELS.md"
 
 
 def test_a_plain_run_writes_the_doc_under_out_dir_not_the_tracked_one(tmp_path, monkeypatch):
-    """Only --docs-only writes the tracked docs/graph_models.md: a run that
+    """Only --docs-only writes the tracked GRAPH_MODELS.md: a run that
     emits sources and names no --docs writes its table next to them."""
     out_dir = tmp_path / "generated"
     code, tracked = _main_in_fake_root(monkeypatch, tmp_path, "--out-dir", str(out_dir))
@@ -547,7 +547,7 @@ def test_the_tracked_graph_models_doc_is_fresh():
 def test_configure_writes_the_doc_into_the_build_tree():
     text = (ROOT / "src" / "cpp_example" / "CMakeLists.txt").read_text()
     assert "--docs ${GRAPH_GENERATED_DIR}/graph_models.md" in text
-    assert "${PROJECT_ROOT}/docs/graph_models.md" not in text
+    assert "${PROJECT_ROOT}/GRAPH_MODELS.md" not in text
     assert "${PROJECT_ROOT}/scripts/modelzoo_manifest.json" in text
 
 

@@ -104,6 +104,6 @@ A window shows the detections, and the console prints a performance summary (lat
 ## Next Steps
 
 - **Interactive demo**: `./run_demo.sh` runs 26 demo tasks (detection, segmentation, pose, depth, super-resolution and more), one model each, on a sample image or video.  
-- **Several models at once**: after `./build.sh --all`, `bash run_multi_model_demo.sh` runs one of three sample graph scenarios (hand cascade, logistics volume, DMS) from a menu; `--check` validates all 22 shipped graphs without the NPU. See [DX-APP Multi-Model Graph](06a_DX-APP_Multi_Model_Graph.md).  
-- **Options and runtime features**: [DX-APP C++ Usage Guide](03_DX-APP_CPP_Example_Usage_Guide.md), [DX-APP Python Usage Guide](05_DX-APP_Python_Example_Usage_Guide.md) and [DX-APP Architecture and Usage Reference](09_DX-APP_Project_Overview.md).  
-- **Your own model**: [DX Tool Guide](10_DX-APP_DX-Tool_Guide.md) and [DX-APP YOLO Customizing Guide](12_DX-APP_YOLO_Customizing_Guide.md).  
+- **Several models at once**: after `./build.sh --all`, `bash run_multi_model_demo.sh` runs one of three sample graph scenarios (hand cascade, logistics volume, DMS) from a menu; `--check` validates all 22 shipped graphs without the NPU. See [DX-APP Multi-Model Graph](05_DX-APP_Multi_Model_Graph.md).  
+- **Options and runtime features**: [DX-APP C++ Usage Guide](03_DX-APP_CPP_Example_Usage_Guide.md), [DX-APP Python Usage Guide](04_DX-APP_Python_Example_Usage_Guide.md) and [DX-APP Architecture and Usage Reference](08_DX-APP_Project_Overview.md).  
+- **Your own model**: [DX Tool Guide](09_DX-APP_DX-Tool_Guide.md) and [DX-APP YOLO Customizing Guide](11_DX-APP_YOLO_Customizing_Guide.md).  

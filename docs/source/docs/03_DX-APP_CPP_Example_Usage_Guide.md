@@ -33,7 +33,7 @@ Representative task directories include:
 - `person_reid/`  
 - `face_landmark/`  
 
-For the full repository-level structure, refer to [DX-APP Example Source Structure](11_DX-APP_Example_Source_Structure.md).
+For the full repository-level structure, refer to [DX-APP Example Source Structure](10_DX-APP_Example_Source_Structure.md).
 
 ---
 
@@ -240,12 +240,11 @@ Dumps raw input/output tensors as `.bin` files. On an exception in a sync runner
 
 The C++ examples rely on their own shared processors in `src/cpp_example/common/processors/`.  
 
-See also: [DX-APP C++ Post-processing Overview](07_DX-APP_CPP_PostProcess_Overview.md)  
+See also: [DX-APP C++ Post-processing Overview](06_DX-APP_CPP_PostProcess_Overview.md)  
 
 ### Developer Resources
 
-- For contributor workflows, use [DX Tool Guide](10_DX-APP_DX-Tool_Guide.md)  
-- For test execution, use [DX-APP C++ Example Tests](04_DX-APP_CPP_Example_Test.md)  
-- For repository layout details, use [DX-APP Example Source Structure](11_DX-APP_Example_Source_Structure.md)  
+- For contributor workflows, use [DX Tool Guide](09_DX-APP_DX-Tool_Guide.md)  
+- For repository layout details, use [DX-APP Example Source Structure](10_DX-APP_Example_Source_Structure.md)  
 
 ---

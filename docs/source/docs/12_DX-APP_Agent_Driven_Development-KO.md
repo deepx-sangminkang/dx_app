@@ -544,7 +544,7 @@ handoff를 통해 호출된 하위 에이전트는 sentinel을 출력하지 않�
 
 ## 추가 참고 자료
 
-- [DX-APP 아키텍처 및 사용 레퍼런스](09_DX-APP_Project_Overview.md)
-- [DX-APP Python 예제 사용 가이드](05_DX-APP_Python_Example_Usage_Guide.md)
+- [DX-APP 아키텍처 및 사용 레퍼런스](08_DX-APP_Project_Overview.md)
+- [DX-APP Python 예제 사용 가이드](04_DX-APP_Python_Example_Usage_Guide.md)
 - [DX-APP C++ 예제 사용 가이드](03_DX-APP_CPP_Example_Usage_Guide.md)
-- [DX-APP 예제 소스 구조](11_DX-APP_Example_Source_Structure.md)
+- [DX-APP 예제 소스 구조](10_DX-APP_Example_Source_Structure.md)

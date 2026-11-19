@@ -29,7 +29,7 @@ You can quickly evaluate inference capabilities without modifying the source cod
     Application performance may vary depending on host system specifications. Each demo includes pre-processing, post-processing, and graphics processing operations.
 
 !!! note "Related Guides"
-    To run a first example in a few steps, refer to [DX-APP Quick Start](01a_DX-APP_Quick_Start.md). For installation and build steps, refer to [DX-APP Installation and Build](02_DX-APP_Installation_and_Build.md). For several models in one pipeline, refer to [DX-APP Multi-Model Graph](06a_DX-APP_Multi_Model_Graph.md). For agent workflows, refer to [DX-APP Agent-Driven Development Guide](13_DX-APP_Agent_Driven_Development.md). For C++ and Python example usage details, refer to [DX-APP C++ Usage Guide](03_DX-APP_CPP_Example_Usage_Guide.md) and [DX-APP Python Usage Guide](05_DX-APP_Python_Example_Usage_Guide.md).
+    To run a first example in a few steps, refer to [DX-APP Quick Start](01a_DX-APP_Quick_Start.md). For installation and build steps, refer to [DX-APP Installation and Build](02_DX-APP_Installation_and_Build.md). For several models in one pipeline, refer to [DX-APP Multi-Model Graph](05_DX-APP_Multi_Model_Graph.md). For agent workflows, refer to [DX-APP Agent-Driven Development Guide](12_DX-APP_Agent_Driven_Development.md). For C++ and Python example usage details, refer to [DX-APP C++ Usage Guide](03_DX-APP_CPP_Example_Usage_Guide.md) and [DX-APP Python Usage Guide](04_DX-APP_Python_Example_Usage_Guide.md).
 
 ### Example Catalog
 

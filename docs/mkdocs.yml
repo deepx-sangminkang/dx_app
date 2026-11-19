@@ -37,20 +37,18 @@ nav:
   - DX-APP Installation and Build: docs/02_DX-APP_Installation_and_Build.md
   - DX-APP C++ Example: 
     - Guide: docs/03_DX-APP_CPP_Example_Usage_Guide.md
-    - Test: docs/04_DX-APP_CPP_Example_Test.md
   - DX-APP Python Example:
-    - Guide: docs/05_DX-APP_Python_Example_Usage_Guide.md
-    - Test: docs/06_DX-APP_Python_Example_Test.md
-  - DX-APP Multi-Model Graph: docs/06a_DX-APP_Multi_Model_Graph.md
+    - Guide: docs/04_DX-APP_Python_Example_Usage_Guide.md
+  - DX-APP Multi-Model Graph: docs/05_DX-APP_Multi_Model_Graph.md
   - DX-APP Post-processing:
-    - C++: docs/07_DX-APP_CPP_PostProcess_Overview.md
-    - Python Binding: docs/08_DX-APP_Pybind_PostProcess_Overview.md
-  - DX-APP Architecture and Usage Reference: docs/09_DX-APP_Project_Overview.md
+    - C++: docs/06_DX-APP_CPP_PostProcess_Overview.md
+    - Python Binding: docs/07_DX-APP_Pybind_PostProcess_Overview.md
+  - DX-APP Architecture and Usage Reference: docs/08_DX-APP_Project_Overview.md
   - DX-APP Developer Guide:
-    - DX Tool: docs/10_DX-APP_DX-Tool_Guide.md
-    - Example Source Structure: docs/11_DX-APP_Example_Source_Structure.md
-    - YOLO Customizing Guide: docs/12_DX-APP_YOLO_Customizing_Guide.md
-    - Agent-Driven Development: docs/13_DX-APP_Agent_Driven_Development.md
+    - DX Tool: docs/09_DX-APP_DX-Tool_Guide.md
+    - Example Source Structure: docs/10_DX-APP_Example_Source_Structure.md
+    - YOLO Customizing Guide: docs/11_DX-APP_YOLO_Customizing_Guide.md
+    - Agent-Driven Development: docs/12_DX-APP_Agent_Driven_Development.md
   - Appendix:
       - Third-Party License: docs/Appendix_Third_Party_License.md
   - Change Log: docs/Appendix_Change_Log.md

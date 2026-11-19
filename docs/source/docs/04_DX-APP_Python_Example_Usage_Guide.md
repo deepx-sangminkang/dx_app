@@ -31,7 +31,7 @@ Representative task directories include:
 - `person_reid/` — Person re-identification (RepVGG)  
 - `face_landmark/` — Face alignment / 3D landmark (3DDFA v2)  
 
-For the full repository-level structure, refer to [DX-APP Example Source Structure](11_DX-APP_Example_Source_Structure.md).  
+For the full repository-level structure, refer to [DX-APP Example Source Structure](10_DX-APP_Example_Source_Structure.md).  
 
 ---
 
@@ -280,12 +280,11 @@ bash scripts/validate_models.sh --lang py
 
 The `*_cpp_postprocess.py` variants depend on the shared Python binding exposed from `src/bindings/python/dx_postprocess/`.  
 
-See also: [DX-APP Pybind PostProcess Overview](08_DX-APP_Pybind_PostProcess_Overview.md)  
+See also: [DX-APP Pybind PostProcess Overview](07_DX-APP_Pybind_PostProcess_Overview.md)  
 
 ### Developer Resources
 
-- For contributor workflows, use [DX Tool Guide](10_DX-APP_DX-Tool_Guide.md)
-- For test execution, use [DX-APP Python Example Tests](06_DX-APP_Python_Example_Test.md)
-- For repository layout details, use [DX-APP Example Source Structure](11_DX-APP_Example_Source_Structure.md)
+- For contributor workflows, use [DX Tool Guide](09_DX-APP_DX-Tool_Guide.md)
+- For repository layout details, use [DX-APP Example Source Structure](10_DX-APP_Example_Source_Structure.md)
 
 ---

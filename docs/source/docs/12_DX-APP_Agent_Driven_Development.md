@@ -550,7 +550,7 @@ Rules:
 
 ## Further Reading
 
-- [DX-APP Architecture and Usage Reference](09_DX-APP_Project_Overview.md)
-- [DX-APP Python Example Usage Guide](05_DX-APP_Python_Example_Usage_Guide.md)
+- [DX-APP Architecture and Usage Reference](08_DX-APP_Project_Overview.md)
+- [DX-APP Python Example Usage Guide](04_DX-APP_Python_Example_Usage_Guide.md)
 - [DX-APP C++ Example Usage Guide](03_DX-APP_CPP_Example_Usage_Guide.md)
-- [DX-APP Example Source Structure](11_DX-APP_Example_Source_Structure.md)
+- [DX-APP Example Source Structure](10_DX-APP_Example_Source_Structure.md)

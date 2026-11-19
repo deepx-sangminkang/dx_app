@@ -422,7 +422,7 @@ The `add_model.sh` script copies a reference example picked from the registry an
 - C++ `factory/<variant>_factory.hpp` (namespace `dxapp::v_<variant>`), `<variant>_sync.cpp` and `<variant>_async.cpp` under `src/cpp_example/<task>/<family>/<variant>/`
 - a `config/model_registry.json` row and a `config/test_models.conf` line (unless `--no-register`)
 
-This enables onboarding a new model with zero manual code in most cases; see the [DX Tool Guide](10_DX-APP_DX-Tool_Guide.md) for the options.
+This enables onboarding a new model with zero manual code in most cases; see the [DX Tool Guide](09_DX-APP_DX-Tool_Guide.md) for the options.
 
 ### Contributor Rules
 
@@ -463,11 +463,11 @@ The source tree and the test tree are related, but not identical.
 `tests/test_helpers/` provides shared constants and utilities used by both C++ and Python test suites:  
 
 - `constants.py` — paths, sample-image maps, timeout values  
-- `utils.py` — executable/script and model discovery, environment setup (full module list: see [DX-APP C++ Example Tests](04_DX-APP_CPP_Example_Test.md))  
+- `utils.py` — executable/script and model discovery, environment setup  
 
 **C++ tests**  
 
-C++ tests are organized as follows. For the full list, see [DX-APP C++ Example Tests](04_DX-APP_CPP_Example_Test.md).
+C++ tests are organized as follows.
 
 | Category | File | Description |
 |----------|------|-------------|
@@ -542,6 +542,6 @@ If the example is intended to be part of the standard repository workflow, also 
 - `scripts/validate_models.sh`
 - `tests/cpp_example/`
 - `tests/python_example/`
-- [DX Tool Guide](10_DX-APP_DX-Tool_Guide.md)
+- [DX Tool Guide](09_DX-APP_DX-Tool_Guide.md)
 
 ---

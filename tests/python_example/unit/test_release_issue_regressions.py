@@ -290,13 +290,13 @@ def test_add_model_exposes_generic_fast_segmentation_alias():
 def test_release_docs_cover_yolo_and_fast_segmentation_updates():
     """Release documentation should describe YOLO customization and generic fast segmentation."""
     mkdocs = _read("docs/mkdocs.yml")
-    yolo_guide = _read("docs/source/docs/12_DX-APP_YOLO_Customizing_Guide.md")
-    cpp_postprocess = _read("docs/source/docs/07_DX-APP_CPP_PostProcess_Overview.md")
-    pybind_postprocess = _read("docs/source/docs/08_DX-APP_Pybind_PostProcess_Overview.md")
-    dx_tool = _read("docs/source/docs/10_DX-APP_DX-Tool_Guide.md")
-    source_structure = _read("docs/source/docs/11_DX-APP_Example_Source_Structure.md")
+    yolo_guide = _read("docs/source/docs/11_DX-APP_YOLO_Customizing_Guide.md")
+    cpp_postprocess = _read("docs/source/docs/06_DX-APP_CPP_PostProcess_Overview.md")
+    pybind_postprocess = _read("docs/source/docs/07_DX-APP_Pybind_PostProcess_Overview.md")
+    dx_tool = _read("docs/source/docs/09_DX-APP_DX-Tool_Guide.md")
+    source_structure = _read("docs/source/docs/10_DX-APP_Example_Source_Structure.md")
 
-    assert "12_DX-APP_YOLO_Customizing_Guide.md" in mkdocs
+    assert "11_DX-APP_YOLO_Customizing_Guide.md" in mkdocs
     assert "YOLO Customizing Guide" in yolo_guide
     assert "FastSegmentationPostprocessor" in cpp_postprocess
     assert "FastSegmentationPostprocessor" in pybind_postprocess

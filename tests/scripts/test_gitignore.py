@@ -37,7 +37,7 @@ NOT_IGNORED = [
     "src/cpp_example/common/utility/common_util.hpp",
     "src/postprocess/yolov5/yolov5_postprocess.h",
     "src/bindings/python/dx_graph/CMakeLists.txt", "tests/scripts/build_sh_sandbox.sh",
-    "docs/graph_models.md",
+    "GRAPH_MODELS.md",
     "src/cpp_example/some_task/some_model/include/some_model.hpp",  # nested include/
     "src/bindings/lib/helper.py",                                   # nested lib/
 ]

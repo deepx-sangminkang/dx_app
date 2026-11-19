@@ -216,7 +216,7 @@ The add flow is intended for contributors creating a new example under the `<tas
 - family directory (empty = the reference's family)  
 - generation mode (sync + async, or sync only)  
 
-For YOLO-family model onboarding and postprocessor selection details, refer to [DX-APP YOLO Customizing Guide](12_DX-APP_YOLO_Customizing_Guide.md).
+For YOLO-family model onboarding and postprocessor selection details, refer to [DX-APP YOLO Customizing Guide](11_DX-APP_YOLO_Customizing_Guide.md).
 
 You can also invoke `add_model.sh` directly for non-interactive usage:  
 
@@ -466,6 +466,6 @@ scripts/run_examples.sh
 - `scripts/run_examples.sh`
 - `scripts/bench_models.sh`
 - `config/model_registry.json`
-- [DX-APP Example Source Structure](11_DX-APP_Example_Source_Structure.md)
+- [DX-APP Example Source Structure](10_DX-APP_Example_Source_Structure.md)
 
 ---

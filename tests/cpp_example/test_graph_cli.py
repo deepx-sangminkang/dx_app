@@ -1017,7 +1017,7 @@ def test_check_rejects_a_bad_graph_with_a_coded_error(tmp_path):
     combined = result.stdout + result.stderr
     assert "GRAPH_EDGE" in combined
     # ToString(Shape::kLabelMap) is "labelmap" - the same spelling
-    # docs/graph_models.md and the JSON schema use.
+    # GRAPH_MODELS.md and the JSON schema use.
     assert "labelmap" in combined
     assert "-> " in combined, "every error must carry a recovery line"
 
@@ -1456,12 +1456,12 @@ def test_list_models_names_the_ports():
 
 @pytest.mark.graph
 def test_generated_docs_match_the_binary():
-    """docs/graph_models.md is generated (and guarded by
+    """GRAPH_MODELS.md is generated (and guarded by
     scripts/check_graph_models_doc.py), so it cannot disagree with
     --list-models."""
     result = run(BINARIES[0], "--list-models")
     assert result.returncode == 0
-    with open(str(PROJECT_ROOT / "docs" / "graph_models.md"),
+    with open(str(PROJECT_ROOT / "GRAPH_MODELS.md"),
               encoding="utf-8") as handle:
         docs = handle.read()
     listed = 0
@@ -1670,7 +1670,7 @@ def test_readme_error_table_lists_every_code():
 @pytest.mark.graph
 def test_docs_say_every_cpp_binary_handles_sigterm():
     assert "does not catch SIGTERM" not in README.read_text(encoding="utf-8")
-    for name in ("03_DX-APP_CPP_Example_Usage_Guide.md", "09_DX-APP_Project_Overview.md"):
+    for name in ("03_DX-APP_CPP_Example_Usage_Guide.md", "08_DX-APP_Project_Overview.md"):
         text = (PROJECT_ROOT / "docs" / "source" / "docs" / name).read_text(encoding="utf-8")
         paragraph = text.split("**Signal Handling**", 1)[1].split("\n**", 1)[0]
         assert "multi_model_graph" in paragraph, name
@@ -1756,7 +1756,7 @@ def test_logistics_volume_alert_decides_on_the_summed_volume():
 
 @pytest.mark.graph
 def test_docs_say_a_stop_request_finishes_every_stream():
-    for name in ("03_DX-APP_CPP_Example_Usage_Guide.md", "09_DX-APP_Project_Overview.md"):
+    for name in ("03_DX-APP_CPP_Example_Usage_Guide.md", "08_DX-APP_Project_Overview.md"):
         text = (PROJECT_ROOT / "docs" / "source" / "docs" / name).read_text(encoding="utf-8")
         paragraph = text.split("**Signal Handling**", 1)[1].split("\n**", 1)[0]
         assert "in every stream" in paragraph, name

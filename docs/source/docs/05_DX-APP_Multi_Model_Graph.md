@@ -25,13 +25,13 @@ This command runs a detector, a semantic segmenter and a pose model over one ima
 | `dx_graph` (Python module) | Runs the same graphs from Python, with the same engine, reports and pictures as the CLI |
 | `src/cpp_example/multi_model_graph/*.json` | 22 sample graphs (see *Sample Graphs*) |
 | `run_multi_model_demo.sh` | Validates every sample graph and runs the demo scenarios |
-| `docs/graph_models.md` | The models that can run in a graph, with what each one produces and consumes |
+| `GRAPH_MODELS.md` | The models that can run in a graph, with what each one produces and consumes |
 
 Both binaries give the same result for the same input: their `--report` files are byte-identical (without `--report-timing`, which adds measured times).  
 
 ### Supported Models and Platforms
 
-- **Models**: 492 of the 497 registered models can run in a graph. A model is named by its variant, the `.dxnn` file stem (for example `yolov8-n_640x640`). `--list-models` and `docs/graph_models.md` list them.  
+- **Models**: 492 of the 497 registered models can run in a graph. A model is named by its variant, the `.dxnn` file stem (for example `yolov8-n_640x640`). `--list-models` and `GRAPH_MODELS.md` list them.  
 - **Inputs**: images, video files, cameras (`camera:<N>`) and RTSP streams (`rtsp://...`), one or several at once.  
 - **Platforms**: Linux x86_64 is built and tested. aarch64 is compile-checked only. Windows is not built or tested in this release (see *Graph engine on Windows* in [DX-APP Installation and Build](02_DX-APP_Installation_and_Build.md)).  
 - **DX-RT**: 3.5.0 or later for the DX Model Zoo 2_5_0 files (`.dxnn` container v9). The graph checks the container before it loads a model, and on an older runtime it stops with a `MODEL_LOAD` error (`--check` exits 1 on it too) that says  
