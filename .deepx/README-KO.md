@@ -241,4 +241,4 @@ fragment 라이브러리를 기준으로 해석됩니다.
 
 ## CI Drift Gate
 
-이 repo는 `subrepo-gate` CI job(`.github/workflows/dx-agent-dev-subrepo-gate-{ghes,cloud}.yml`)으로 검사됩니다. 실행 내용, 로컬 재현, red일 때 수정 방법: [`docs/ci-subrepo-gate-KO.md`](docs/ci-subrepo-gate-KO.md).
+이 repo는 `subrepo-gate` CI job(`.github/workflows/dx-agent-dev-subrepo-gate-{ghes,cloud}.yml`)으로 검사됩니다. 실행 내용, 로컬 재현, red일 때 수정 방법: `docs/ci-subrepo-gate-KO.md`(내부 repository 전용).
